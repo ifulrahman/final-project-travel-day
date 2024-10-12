@@ -9,59 +9,59 @@
 ## Screenshots (Preview)
 
 <p align="center">
-  <img width="600" alt="image" src="Screenshot_1.png"/>
+  <img width="600" alt="image" src="Screenshot_1.jpg"/>
 </p>
 
 <p align="center">
-  <img width="600" alt="image" src="Screenshot_2.png"/>
+  <img width="600" alt="image" src="Screenshot_2.jpg"/>
 </p>
 
 <p align="center">
-  <img width="600" alt="image" src="Screenshot_3.png"/>
+  <img width="600" alt="image" src="Screenshot_3.jpg"/>
 </p>
 
 <p align="center">
-  <img width="600" alt="image" src="Screenshot_4.png"/>
+  <img width="600" alt="image" src="Screenshot_4.jpg"/>
 </p>
 
 <p align="center">
-  <img width="600" alt="image" src="Screenshot_5.png"/>
+  <img width="600" alt="image" src="Screenshot_5.jpg"/>
 </p>
 
 <p align="center">
-  <img width="600" alt="image" src="Screenshot_6.png"/>
+  <img width="600" alt="image" src="Screenshot_6.jpg"/>
 </p>
 
 <p align="center">
-  <img width="600" alt="image" src="Screenshot_7.png"/>
+  <img width="600" alt="image" src="Screenshot_7.jpg"/>
 </p>
 
 <p align="center">
-  <img width="600" alt="image" src="Screenshot_8.png"/>
+  <img width="600" alt="image" src="Screenshot_8.jpg"/>
 </p>
 
 <p align="center">
-  <img width="600" alt="image" src="Screenshot_9.png"/>
+  <img width="600" alt="image" src="Screenshot_9.jpg"/>
 </p>
 
 <p align="center">
-  <img width="600" alt="image" src="Screenshot_10.png"/>
+  <img width="600" alt="image" src="Screenshot_10.jpg"/>
 </p>
 
 <p align="center">
-  <img width="600" alt="image" src="Screenshot_11.png"/>
+  <img width="600" alt="image" src="Screenshot_11.jpg"/>
 </p>
 
 <p align="center">
-  <img width="600" alt="image" src="Screenshot_12.png"/>
+  <img width="600" alt="image" src="Screenshot_12.jpg"/>
 </p>
 
 <p align="center">
-  <img width="600" alt="image" src="Screenshot_13.png"/>
+  <img width="600" alt="image" src="Screenshot_13.jpg"/>
 </p>
 
 <p align="center">
-  <img width="600" alt="image" src="Screenshot_14.png"/>
+  <img width="600" alt="image" src="Screenshot_14.jpg"/>
 </p>
 
 # React + Vite
