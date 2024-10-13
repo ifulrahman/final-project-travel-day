@@ -7,6 +7,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import tdLogo from '../assets/td-logo.png';
 import nusaPenida from '../assets/nusa-penida.jpg';
+import { loginSuccess } from '../redux/slices/authSlice';
 
 const RegisterPage = () => {
   const [details, setDetails] = useState({
