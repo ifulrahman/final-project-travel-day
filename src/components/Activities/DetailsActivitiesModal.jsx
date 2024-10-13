@@ -4,6 +4,7 @@ import { FaTimes } from 'react-icons/fa';
 
 const DetailsActivitiesModal = ({ activityId, onClose }) => {
   const [activity, setActivity] = useState(null); // State untuk menyimpan data aktivitas
+  const [loading, setLoading] = useState(true); // State untuk loading
 
   useEffect(() => {
     // Fungsi untuk mengambil detail aktivitas dari API
@@ -18,17 +19,30 @@ const DetailsActivitiesModal = ({ activityId, onClose }) => {
             },
           }
         );
-        setActivity(response.data.data); // Menyimpan data aktivitas yang diambil
+        setTimeout(() => {
+          setActivity(response.data.data); // Menyimpan data aktivitas yang diambil
+          setLoading(false); // Menonaktifkan loading setelah 1 detik
+        }, 1000); // Membuat loading selama 1 detik
       } catch (error) {
         console.error('Error fetching activity details:', error);
+        setLoading(false); // Tetap menonaktifkan loading meskipun ada error
       }
     };
 
     fetchActivityDetails();
   }, [activityId]);
 
+  if (loading) {
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-white bg-opacity-75">
+        {/* Menampilkan animasi loading */}
+        <div className="w-16 h-16 border-t-4 border-blue-500 rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+
   if (!activity) {
-    return <div>Loading...</div>; // Menampilkan pesan loading jika data belum tersedia
+    return <div>Error fetching activity details.</div>; // Menampilkan pesan error jika gagal mengambil data
   }
 
   return (
@@ -41,7 +55,6 @@ const DetailsActivitiesModal = ({ activityId, onClose }) => {
         >
           <FaTimes size={20} />
         </button>
-
 
         <h2 className="mb-4 text-xl font-bold text-center md:text-2xl md:text-left">{activity.title}</h2>
         <img
