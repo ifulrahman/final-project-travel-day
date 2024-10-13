@@ -80,10 +80,10 @@ const AddActivityModal = ({ isOpen, onClose, onActivityAdded }) => {
     const formData = {
       title: activity.title,
       description: activity.description,
-      price: activity.price,
-      price_discount: activity.price_discount,
-      rating: activity.rating,
-      total_reviews: activity.total_reviews,
+      price: parseFloat(activity.price), // Mengonversi price menjadi number (float)
+      price_discount: parseFloat(activity.price_discount), // Mengonversi price_discount menjadi number (float)
+      rating: parseFloat(activity.rating), // Mengonversi rating menjadi number (float)
+      total_reviews: parseInt(activity.total_reviews, 10), // Mengonversi total_reviews menjadi number (integer)
       facilities: activity.facilities,
       address: activity.address,
       province: activity.province,
