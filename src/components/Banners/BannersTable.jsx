@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { FaArrowLeft, FaArrowRight, FaEdit, FaTrash } from 'react-icons/fa'; // Import icons dari react-icons untuk tombol.
+import { FaArrowLeft, FaArrowRight, FaEdit, FaTrash, FaInfoCircle } from 'react-icons/fa'; // Import icons dari react-icons untuk tombol.
 import EditBannerModal from './EditBannerModal';
 import DeleteBannerModal from './DeleteBannerModal';
 import AddBannerModal from './AddBannerModal';
+import DetailsBannerModal from './DetailsBannerModal'; // Tambahkan import modal detail banner
 
 // Komponen utama untuk menampilkan daftar banner, menambah, mengedit, dan menghapus banner.
 const BannersTable = () => {
@@ -12,6 +13,7 @@ const BannersTable = () => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false); // Menyimpan status apakah modal edit terbuka.
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false); // Menyimpan status apakah modal delete terbuka.
   const [isAddModalOpen, setIsAddModalOpen] = useState(false); // Menyimpan status apakah modal tambah terbuka.
+  const [isDetailModalOpen, setIsDetailModalOpen] = useState(false); // Menyimpan status modal detail
   const [message, setMessage] = useState(''); // Menyimpan pesan notifikasi.
   const [toastType, setToastType] = useState(''); // Menyimpan jenis notifikasi (sukses/gagal).
   const [currentPage, setCurrentPage] = useState(1); // Menyimpan nomor halaman saat ini pada tabel.
@@ -55,6 +57,12 @@ const BannersTable = () => {
   // Fungsi untuk membuka modal tambah banner.
   const handleAddBannerClick = () => {
     setIsAddModalOpen(true);
+  };
+
+  // Fungsi untuk membuka modal detail banner.
+  const handleDetailClick = (banner) => {
+    setSelectedBanner(banner);
+    setIsDetailModalOpen(true);
   };
 
   // Fungsi untuk menampilkan notifikasi (toast).
@@ -116,12 +124,21 @@ const BannersTable = () => {
                   </span>
                 </button>
                 <button
-                  className="relative p-2 bg-red-500 rounded-full hover:bg-red-600 group"
+                  className="relative p-2 mr-2 bg-red-500 rounded-full hover:bg-red-600 group"
                   onClick={() => handleDeleteClick(banner)} // Memilih banner untuk dihapus.
                 >
                   <FaTrash className="text-white" />
                   <span className="absolute hidden px-2 py-1 text-xs text-white transform -translate-x-1/2 bg-gray-800 rounded -top-8 left-1/2 group-hover:block">
                     Delete
+                  </span>
+                </button>
+                <button
+                  className="relative p-2 bg-blue-500 rounded-full hover:bg-blue-600 group"
+                  onClick={() => handleDetailClick(banner)} // Memilih banner untuk melihat detail
+                >
+                  <FaInfoCircle className="text-white" />
+                  <span className="absolute hidden px-2 py-1 text-xs text-white transform -translate-x-1/2 bg-gray-800 rounded -top-8 left-1/2 group-hover:block">
+                    Details
                   </span>
                 </button>
               </div>
@@ -183,6 +200,14 @@ const BannersTable = () => {
             fetchBanners(); // Memperbarui daftar banner setelah menghapus.
             showToast('Banner deleted successfully', 'success'); // Menampilkan notifikasi sukses.
           }}
+        />
+      )}
+
+      {/* Modal untuk melihat detail banner */}
+      {isDetailModalOpen && (
+        <DetailsBannerModal
+          banner={selectedBanner}
+          onClose={() => setIsDetailModalOpen(false)}
         />
       )}
 
