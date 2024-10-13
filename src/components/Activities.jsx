@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Slider from 'react-slick'; // Import Slider dari 'react-slick' untuk membuat tampilan slide
+import DetailsActivitiesModal from '../components/Activities/DetailsActivitiesModal'; // Import Modal Detail
 
 // Komponen Activities untuk menampilkan daftar aktivitas dalam bentuk slider
 const Activities = ({ activities }) => {
+  const [selectedActivity, setSelectedActivity] = useState(null); // State untuk aktivitas yang dipilih
+  const [isModalOpen, setIsModalOpen] = useState(false); // State untuk mengatur modal
+
   const settings = {
     dots: true, // Tampilkan titik navigasi di bawah slider
     infinite: true, // Slide akan terus berputar tanpa akhir
@@ -43,6 +47,12 @@ const Activities = ({ activities }) => {
     return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
   };
 
+  // Fungsi untuk membuka modal detail
+  const handleDetailsClick = (activity) => {
+    setSelectedActivity(activity); // Menyimpan aktivitas yang dipilih
+    setIsModalOpen(true); // Membuka modal
+  };
+
   return (
     <section className="p-6 bg-white md:p-12 font-league-spartan pt-18 pb-28">
       {/* Judul latar belakang besar yang bersifat dekoratif */}
@@ -73,7 +83,10 @@ const Activities = ({ activities }) => {
                     {truncateText(activity.description, 60)} {/* Batasi deskripsi menjadi 60 karakter */}
                   </p>
                   {/* Tombol untuk melihat detail aktivitas */}
-                  <button className="px-4 py-2 mt-4 text-sm text-white rounded-full bg-mainBlue hover:bg-blue-600">
+                  <button
+                    className="px-4 py-2 mt-4 text-sm text-white rounded-full bg-mainBlue hover:bg-blue-600"
+                    onClick={() => handleDetailsClick(activity)} // Membuka modal ketika tombol diklik
+                  >
                     Details
                   </button>
                 </div>
@@ -82,6 +95,14 @@ const Activities = ({ activities }) => {
           ))}
         </Slider>
       </div>
+
+      {/* Modal Detail Activities */}
+      {isModalOpen && selectedActivity && (
+        <DetailsActivitiesModal
+          activityId={selectedActivity.id}
+          onClose={() => setIsModalOpen(false)} // Menutup modal
+        />
+      )}
     </section>
   );
 };
