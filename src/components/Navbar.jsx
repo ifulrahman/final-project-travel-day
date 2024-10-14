@@ -187,51 +187,61 @@ const Navbar = () => {
       </div>
 
       {/* Menu mobile */}
-        <div
-          className={`md:hidden transition-all duration-300 ease-in-out transform ${
-            isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
-          } overflow-hidden`}
-        >
-          <div className="px-6 py-4 space-y-4 text-lg bg-blueBg text-blueText">
-            <Link to="/" className="block hover:text-blue-600">Home</Link>
-            <Link to="/destinations" className="block hover:text-blue-600">Destinations</Link>
-            <Link to="/promo" className="block hover:text-blue-600">Promo</Link>
-            <Link to="/category" className="block hover:text-blue-600">Category</Link>
-            <Link to="/activity" className="block hover:text-blue-600">Activities</Link>
-            {/* Profil user pada tampilan mobile */}
-            {user && (
-              <div className="flex flex-col items-center mt-4 space-y-2">
-                <img
-                  src={user.profilePictureUrl || 'https://via.placeholder.com/150'}
-                  alt="Profile"
-                  className="w-16 h-16 rounded-full"
-                />
-                <button
-                  onClick={() => setIsProfileModalOpen(true)}
-                  className="flex items-center justify-center w-full px-4 py-2 bg-white rounded-full text-blueText hover:bg-blue-100"
-                >
-                  <FaUser className="mr-2" /> Profile
-                </button>
-                {user.role === 'admin' && (
-                  <button
-                    onClick={handleDashboardClick}
-                    className="flex items-center justify-center w-full px-4 py-2 bg-white rounded-full text-blueText hover:bg-blue-100"
-                    disabled={loading}
-                  >
-                    <FaTachometerAlt className="mr-2" />
-                    {loading ? 'Loading...' : 'Dashboard'}
-                  </button>
-                )}
-                <button
-                  onClick={handleLogoutClick}
-                  className="flex items-center justify-center w-full px-4 py-2 text-red-600 bg-white rounded-full hover:bg-gray-100"
-                >
-                  <FaSignOutAlt className="mr-2" /> Log Out
-                </button>
-              </div>
+      <div
+        className={`md:hidden transition-all duration-300 ease-in-out transform ${
+          isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+        } overflow-hidden`}
+      >
+        <div className="px-6 py-4 space-y-4 text-lg bg-blueBg text-blueText">
+          <Link to="/" className="block hover:text-blue-600">Home</Link>
+          <Link to="/destinations" className="block hover:text-blue-600">Destinations</Link>
+          <Link to="/promo" className="block hover:text-blue-600">Promo</Link>
+          <Link to="/category" className="block hover:text-blue-600">Category</Link>
+          <Link to="/activity" className="block hover:text-blue-600">Activities</Link>
+
+        {/* Profil user pada tampilan mobile */}
+        {user ? (
+          <div className="flex flex-col items-center mt-4 space-y-2">
+            <img
+              src={user.profilePictureUrl || 'https://via.placeholder.com/150'}
+              alt="Profile"
+              className="w-16 h-16 rounded-full"
+            />
+            <button
+              onClick={() => setIsProfileModalOpen(true)}
+              className="flex items-center justify-center w-full px-4 py-2 bg-white rounded-full text-blueText hover:bg-blue-100"
+            >
+              <FaUser className="mr-2" /> Profile
+            </button>
+            {user.role === 'admin' && (
+              <button
+                onClick={handleDashboardClick}
+                className="flex items-center justify-center w-full px-4 py-2 bg-white rounded-full text-blueText hover:bg-blue-100"
+                disabled={loading}
+              >
+                <FaTachometerAlt className="mr-2" />
+                {loading ? 'Loading...' : 'Dashboard'}
+              </button>
             )}
+            <button
+              onClick={handleLogoutClick}
+              className="flex items-center justify-center w-full px-4 py-2 text-red-600 bg-white rounded-full hover:bg-gray-100"
+            >
+              <FaSignOutAlt className="mr-2" /> Log Out
+            </button>
           </div>
-        </div>
+        ) : (
+          // Tombol Login/Register hanya saat user dalam keadaan logout
+          <button 
+            onClick={handleLoginClick}
+            className="w-full px-4 py-2 text-blue-600 bg-white rounded-full hover:bg-blue-100"
+          >
+            <i className="mr-2 fa fa-user"></i>
+            Log in / Register
+          </button>
+        )}
+      </div>
+    </div>
 
       {/* Animasi loading ketika user diarahkan ke halaman lain */}
       {loading && (

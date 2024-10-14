@@ -5,8 +5,8 @@ const Highlight = ({ isOpen }) => {
     <div
       className={`absolute transition-all duration-300 w-full z-20 flex justify-center font-league-spartan ${
         isOpen
-          ? 'top-[900px] md:top-[800px] lg:top-[850px]' // Jika isOpen true, posisi konten lebih ke bawah
-          : 'top-[600px] md:top-[500px] lg:top-[700px]' // Jika isOpen false, posisi konten lebih ke atas
+          ? 'top-[910px] sm:top-[500px] md:top-[800px] lg:top-[850px]' // Jika isOpen true, posisi konten lebih ke bawah
+          : 'top-[460px] sm:top-[500px] md:top-[700px] lg:top-[700px]' // Jika isOpen false, posisi konten lebih ke atas
       }`}
     >
       <div className="bg-white shadow-lg p-6 md:p-9 rounded-lg grid grid-cols-1 sm:grid-cols-2 md:flex justify-between items-center w-[90%] md:w-[85%] max-w-4xl gap-4">
