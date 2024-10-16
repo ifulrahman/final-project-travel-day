@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="*" element={<NotFoundPage />} />
 
           {/* Rute Dashboard hanya bisa diakses oleh admin yang sudah login */}
           <Route

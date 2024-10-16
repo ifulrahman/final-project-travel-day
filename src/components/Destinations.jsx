@@ -1,10 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate untuk navigasi
 import australia from '../assets/australia.jpg';
 import makkah from '../assets/makkah.jpg';
 import mandalika from '../assets/mandalika.jpg';
 
 // Komponen Destinations untuk menampilkan daftar destinasi dalam bentuk kartu
 const Destinations = () => {
+  const navigate = useNavigate(); // Inisialisasi hook useNavigate
+
   return (
     <section className="p-6 pb-16 md:p-12 font-league-spartan bg-blueBg pt-18 md:pb-28">
       {/* Judul besar sebagai latar belakang untuk tampilan */}
@@ -38,7 +41,10 @@ const Destinations = () => {
             </p>
             {/* Tombol dan harga paket */}
             <div className="flex items-center justify-between mt-7">
-              <button className="px-3 py-2 text-sm text-white transition rounded-lg md:px-4 md:py-2 bg-mainBlue hover:bg-blue-700 md:text-base">
+              <button
+                className="px-3 py-2 text-sm text-white transition rounded-lg md:px-4 md:py-2 bg-mainBlue hover:bg-blue-700 md:text-base"
+                onClick={() => navigate('/404-not-found')} // Arahkan ke halaman 404
+              >
                 Explore Now
               </button>
               <span className="text-sm md:text-lg text-mainBlue">IDR 3.998.000<span className="text-[10px] md:text-[11px] text-black font-medium"> PER TOUR</span></span>
@@ -62,7 +68,10 @@ const Destinations = () => {
               Experience the wonders of Mandalika with our exclusive tour packages.
             </p>
             <div className="flex items-center justify-between mt-7">
-              <button className="px-3 py-2 text-sm text-white transition rounded-lg md:px-4 md:py-2 bg-mainBlue hover:bg-blue-700 md:text-base">
+              <button
+                className="px-3 py-2 text-sm text-white transition rounded-lg md:px-4 md:py-2 bg-mainBlue hover:bg-blue-700 md:text-base"
+                onClick={() => navigate('/404-not-found')} // Arahkan ke halaman 404
+              >
                 Explore Now
               </button>
               <span className="text-sm md:text-lg text-mainBlue">IDR 500.899<span className="text-[10px] md:text-[11px] text-black font-medium"> PER TOUR</span></span>
@@ -86,7 +95,10 @@ const Destinations = () => {
               Experience a spiritual journey to Makkah with our premium packages.
             </p>
             <div className="flex items-center justify-between mt-7">
-              <button className="px-3 py-2 text-sm text-white transition rounded-lg md:px-4 md:py-2 bg-mainBlue hover:bg-blue-700 md:text-base">
+              <button
+                className="px-3 py-2 text-sm text-white transition rounded-lg md:px-4 md:py-2 bg-mainBlue hover:bg-blue-700 md:text-base"
+                onClick={() => navigate('/404-not-found')} // Arahkan ke halaman 404
+              >
                 Explore Now
               </button>
               <span className="text-sm md:text-lg text-mainBlue">IDR 12.750.999<span className="text-[10px] md:text-[11px] text-black font-medium"> PER TOUR</span></span>

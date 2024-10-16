@@ -10,11 +10,13 @@ import Categories from '../components/Categories';
 import Activities from '../components/Activities'; 
 import Banner from '../components/Banner';
 import Gallery from '../components/Gallery';
+import { useNavigate } from 'react-router-dom'; // For navigation
 
 const API_URL = 'https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1'; // Base URL untuk API
 const API_KEY = '24405e01-fbc1-45a5-9f5a-be13afcd757c'; // API Key untuk autentikasi
 
 const LandingPage = () => {
+  const navigate = useNavigate();
   const [banners, setBanners] = useState([]); // State untuk menyimpan data banners
   const [promos, setPromos] = useState([]); // State untuk menyimpan data promos
   const [categories, setCategories] = useState([]); // State untuk menyimpan data categories
@@ -53,7 +55,9 @@ const LandingPage = () => {
           <p className="mt-4 md:mt-6 lg:mt-10 text-base md:text-lg lg:text-[18px] max-w-md md:max-w-lg">
             We offer a variety of travel packages, from budget-friendly adventures to luxury getaways, ensuring an unforgettable experience for all types of travelers and preferences.
           </p>
-          <button className="px-4 py-2 mt-4 text-sm font-semibold bg-white md:px-6 md:py-3 md:mt-6 md:text-base text-blueText rounded-xl hover:bg-blue-50">
+          <button className="px-4 py-2 mt-4 text-sm font-semibold bg-white md:px-6 md:py-3 md:mt-6 md:text-base text-blueText rounded-xl hover:bg-blue-50"
+            onClick={() => navigate('/404-not-found')}
+          >
             Explore Now
           </button>
         </div>
