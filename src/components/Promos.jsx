@@ -35,7 +35,10 @@ const Promos = ({ promos }) => {
               <div className="p-4">
                 <h3 className="text-xl font-semibold">{promo.title}</h3>
                 <p className="mt-2 text-gray-600">{promo.description}</p>
-                <p className="mt-2 font-sans text-sm font-extrabold text-red-500">🏷️ Promo Discount IDR {promo.promo_discount_price}</p>
+                {/* format menampilkan harga agar diberikan titik setiap 3 angka */}
+                <p className="mt-2 font-sans text-sm font-extrabold text-red-500">
+                  🏷️ Promo Discount IDR {promo.promo_discount_price.toLocaleString('id-ID')}
+                </p>
               </div>
             </div>
           ))}

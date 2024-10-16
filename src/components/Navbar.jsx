@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { FaUser, FaSignOutAlt, FaTachometerAlt, FaChevronDown } from 'react-icons/fa';
+import { FaUser, FaSignOutAlt, FaTachometerAlt, FaChevronDown, FaShoppingCart } from 'react-icons/fa'; // Import ikon Carts
 import travelDayLogo from '../assets/td-logo.png';
 import Highlight from './Highlight';
 import ModalProfile from './Profile/ModalProfile';
@@ -85,6 +85,10 @@ const Navbar = () => {
     }, 2000);
   };
 
+  const handleCartsClick = () => {
+    navigate('/carts'); // Navigasi ke halaman carts
+  };
+
   const toggleMenu = () => {
     setIsOpen(!isOpen); // Menampilkan atau menyembunyikan menu mobile
   };
@@ -126,12 +130,18 @@ const Navbar = () => {
           <Link to="/activity" className="hover:text-blue-600">Activities</Link>
         </div>
 
-        {/* User profile, login, dan tombol logout */}
+        {/* User profile, carts icon, login, dan tombol logout */}
         <div className="items-center hidden space-x-4 md:flex">
           {user ? (
-            <div className="relative">
-              {/* Menampilkan gambar profil user */}
-              <div className="flex items-center cursor-pointer" onClick={toggleProfileMenu}>
+            <div className="relative flex items-center">
+              {/* Tampilkan icon Carts jika role user adalah 'user' */}
+              {user.role === 'user' && (
+                <FaShoppingCart
+                  className="text-2xl cursor-pointer text-blueText hover:text-blue-600"
+                  onClick={handleCartsClick} // Arahkan ke halaman carts saat diklik
+                />
+              )}
+              <div className="flex items-center ml-4 cursor-pointer" onClick={toggleProfileMenu}>
                 <img 
                   src={user.profilePictureUrl || 'https://via.placeholder.com/150'}  
                   alt="Profile" 
@@ -141,7 +151,7 @@ const Navbar = () => {
               </div>
               {/* Menu dropdown profil */}
               {isProfileMenuOpen && (
-                <div className="absolute right-0 z-50 w-48 mt-2 bg-white rounded-lg shadow-md">
+                <div className="absolute right-0 z-50 w-48 bg-white rounded-lg shadow-md mt-36">
                   <button
                     onClick={() => setIsProfileModalOpen(true)}
                     className="flex items-center w-full px-4 py-2 text-left text-blueText hover:bg-gray-100"
@@ -201,12 +211,18 @@ const Navbar = () => {
 
         {/* Profil user pada tampilan mobile */}
         {user ? (
-          <div className="flex flex-col items-center mt-4 space-y-2">
+          <div className="flex flex-col items-center mt-4 space-y-3">
             <img
               src={user.profilePictureUrl || 'https://via.placeholder.com/150'}
               alt="Profile"
               className="w-16 h-16 rounded-full"
             />
+            {user.role === 'user' && (
+              <FaShoppingCart
+                className="text-2xl cursor-pointer text-blueText hover:text-blue-600"
+                onClick={handleCartsClick} // Arahkan ke halaman carts pada mobile
+              />
+            )}
             <button
               onClick={() => setIsProfileModalOpen(true)}
               className="flex items-center justify-center w-full px-4 py-2 bg-white rounded-full text-blueText hover:bg-blue-100"

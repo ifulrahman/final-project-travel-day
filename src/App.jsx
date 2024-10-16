@@ -4,6 +4,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import Dashboard from './pages/Dashboard';
 import ProtectedRoute from './routes/ProtectedRoute';
+import CartsPage from './pages/CartsPage';  // Import halaman untuk keranjang (carts)
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import "slick-carousel/slick/slick.css";
@@ -24,6 +25,16 @@ function App() {
             element={
               <ProtectedRoute adminOnly={true}>  {/* Membatasi akses hanya untuk admin */}
                 <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Tambahkan rute untuk halaman Cart */}
+          <Route
+            path="/carts"
+            element={
+              <ProtectedRoute>  {/* Ini bisa hanya untuk user yang sudah login */}
+                <CartsPage />
               </ProtectedRoute>
             }
           />
