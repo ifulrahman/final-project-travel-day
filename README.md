@@ -6,6 +6,60 @@
 ## Live Preview
 - Link Visit online: [Travel Day - Iful Rahman](https://final-project-travel-day.vercel.app/)
 
+## Technology
+- HTML, CSS, JavaScript
+- React.js + Vite
+- Tailwind CSS
+- Redux
+
+## Feature
+<b>Role Admin</b>
+<br>Login Account :
+<br>Username : miftahfarhan@gmail.com
+<br>Pass : qwerty123
+- Can access Dashboard Menu for Create, Read, Update, Delete (CRUD) any konten such as banner, categories, promos, activities
+
+<b>Role User</b>
+<br>Login Account :
+<br>Username : 1234@gmail.com
+<br>Pass : qwerty123
+- Can access add to cart menu
+
+## Library
+- Axios
+- React/ React-DOM
+- React Slick
+- React Toastify
+- React Icons
+- Slick Carousel
+
+## Installation
+
+To run this project locally, follow these steps:
+
+1. Download this project from this repository:
+
+   ```bash
+   Download Zip Folder
+
+   ```
+
+2. Install the dependencies:
+
+   ```bash
+   npm install
+
+   ```
+
+3. Start the development server:
+
+   ```bash
+   npm start
+
+   ```
+
+4. Open your browser and navigate to http://localhost:3000
+
 ## Screenshots (Preview)
 
 <p align="center">
