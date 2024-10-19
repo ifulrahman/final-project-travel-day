@@ -60,6 +60,9 @@ To run this project locally, follow these steps:
 
 4. Open your browser and navigate to http://localhost:3000
 
+## Power Point 
+<i>The PowerPoint file is already available in this repository.</i>
+
 ## Screenshots (Preview)
 
 <p align="center">
