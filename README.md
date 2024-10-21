@@ -44,6 +44,8 @@ To run this project locally, follow these steps:
 
    ```
 
+3. Open project with code editor and open terminal
+
 2. Install the dependencies:
 
    ```bash
@@ -54,7 +56,7 @@ To run this project locally, follow these steps:
 3. Start the development server:
 
    ```bash
-   npm start
+   npm run dev
 
    ```
 
